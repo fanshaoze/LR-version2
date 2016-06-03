@@ -1,0 +1,54 @@
+P->prog id ( input , output ) D ; S
+D->D ; D
+D->List : T
+D->proc id D ; S
+List->List , id
+List->id
+T->integer
+T->real
+T->array C of T
+T->record D
+C->[ num ] C
+C->e
+D->D ; D
+D->id : T
+D->proc id ; D ; S
+T->record D end
+S->Left := E
+E->E + E
+E->E * E
+E->- E
+E->( E )
+E->Left
+Left->Elist ]
+Left->id
+Elist->Elist , E
+Elist-> id [ E
+B->B or M B
+B->B and M B
+B->not B
+B->( B )
+B->E relop E
+B->true
+B->false
+M->e
+S->if B then S
+S->if B then S else S
+S->while B do S
+S->begin L end
+S->A
+L->L ; S
+L->S
+S->for id := E to E step E do S
+S->repeat S until B
+S->switch ( E ) Clist
+Clist->case V : S Clist
+Clist->default : S
+S->call id ( Elist )
+Elist->Elist , E
+Elist->E
+S->return E
+S->read ( List ) 
+S->readln ( List )
+S->write ( Elist )
+S->writeln ( Elist )
